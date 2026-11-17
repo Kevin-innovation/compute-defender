@@ -1,0 +1,7 @@
+out/
+__pycache__/
+.env*
+.vercel
+.vscode
+compile_commands.json
+portfolio/.hallmark/
