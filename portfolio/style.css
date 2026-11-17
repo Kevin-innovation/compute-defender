@@ -307,6 +307,7 @@ a { color: inherit; }
 .hero-shot img { max-height: 400px; object-fit: contain; background: #0f172a; }
 .hero-shot figcaption { color: var(--on-dark-muted); }
 .learning-note { margin-top: 20px; }
+.client-log { margin-top: 40px; }
 
 .code-card {
   background: var(--canvas-dark);

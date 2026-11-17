@@ -69,11 +69,15 @@ $env:COMPUTER_DEFENDER_API_KEY = 'replace-with-your-own-key'
 | `COMPUTER_DEFENDER_URL` | C++ 연결 서버, 기본값 `http://127.0.0.1:8000` |
 | `COMPUTER_DEFENDER_API_KEY` | C++ 인증 키 |
 
-현재 `pyproject.toml`은 Vercel FastAPI 진입점을 선언합니다. `VERCEL` 환경에서는 서버가 API 키와 Redis 설정을 필수로 검사합니다. 배포 URL은 이 문서에 지정하지 않았습니다.
+`pyproject.toml`에는 FastAPI 진입점이 선언되어 있습니다. 실제 제어 서버를 별도로 배포할 때 `VERCEL` 환경에서는 API 키와 Redis 설정이 필요합니다.
 
 `docs/howToUse.md`에는 Supabase/PostgreSQL 구상이 남아 있지만, 현재 소스의 저장소 구현은 Upstash Redis입니다.
 
 ## 랜딩 페이지 미리보기
+
+공개 주소: <https://compute-defender.vercel.app/>. 저장소 루트의 `vercel.json`은 프레임워크를 `Other`로 지정하고 `portfolio/`만 정적 배포합니다. 설치·빌드 단계가 없으며 랜딩 페이지에는 API 키나 Redis가 필요하지 않습니다.
+
+Vercel 프로젝트의 Root Directory는 저장소 루트(`.`), Production Branch는 `main`으로 설정합니다. Git 연동으로 `main` 푸시 후 자동 재배포되며, 연동되지 않았다면 Vercel에서 해당 커밋을 배포해야 합니다. 이 설정은 실제 프로세스 제어 서버를 함께 배포하지 않습니다.
 
 ```powershell
 python -m http.server 8765 --bind 127.0.0.1 --directory portfolio
@@ -85,4 +89,4 @@ python -m http.server 8765 --bind 127.0.0.1 --directory portfolio
 
 [앱 목록 스크린샷 보기](portfolio/assets/images/process-list.png)
 
-2026-11-17: 개발 경험을 랜딩 페이지에 반영하고 제공된 스크린샷 2장을 삽입했습니다. 페이지 구성과 수정 방법은 [포트폴리오 README](portfolio/README.md)를 참고하세요.
+2026-11-17: 개발 경험과 제공된 이미지를 반영했습니다. 최신 앱 목록으로 교체하고 C++ 통신 로그를 추가했으며, FastAPI 자동 실행 대신 랜딩 페이지를 정적 배포하도록 Vercel 설정을 명시했습니다. 페이지 구성과 수정 방법은 [포트폴리오 README](portfolio/README.md)를 참고하세요.
